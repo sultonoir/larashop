@@ -25,7 +25,7 @@ export default function CreateTodo() {
 
     post(route("todos.store"), {
       data: {
-        task: data.task,
+        // task: 0,
         csrf: document
           .querySelector('meta[name="csrf-token"]')
           ?.getAttribute("content"),
@@ -51,7 +51,6 @@ export default function CreateTodo() {
       <form onSubmit={submit} className="mt-6 space-y-6">
         <div>
           <InputLabel htmlFor="task" value="Task" />
-
           <TextInput
             id="task"
             className="mt-1 block w-full"
