@@ -2,6 +2,7 @@ import Feature from "@/Components/Feature";
 import Products from "@/Components/Products";
 import { useCart } from "@/hooks/use-cart";
 import Authenticated from "@/Layouts/AuthenticatedLayout";
+import { formatToDollar } from "@/lib/utils";
 import { Product } from "@/types";
 import { Head } from "@inertiajs/react";
 import { Minus, Plus, Star } from "lucide-react";
@@ -12,18 +13,10 @@ interface Props {
 }
 
 export default function Details({ product }: Props) {
-  const { add } = useCart();
-  const [selectedSize, setSelectedSize] = useState("");
-  const [quantity, setQuantity] = useState(1);
-
   const sizes = ["XS", "S", "M", "L", "XL"];
-
-  function formatToDollar(amount: number) {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount);
-  }
+  const { add } = useCart();
+  const [selectedSize, setSelectedSize] = useState(sizes[0]);
+  const [quantity, setQuantity] = useState(1);
 
   const handleAddCart = () => {
     if (selectedSize === "") {

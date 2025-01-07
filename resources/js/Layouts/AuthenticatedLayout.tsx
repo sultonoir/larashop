@@ -16,8 +16,8 @@ export default function Authenticated({
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
       <nav className="border-b border-gray-100 bg-white dark:border-gray-700 dark:bg-gray-800">
-        <div className="mx-auto max-w-screen-xl px-4 sm:px-0">
-          <div className="flex h-16 justify-between">
+        <div className="mx-auto max-w-screen-xl">
+          <div className="flex h-16 justify-between px-4">
             <div className="flex">
               <div className="flex shrink-0 items-center">
                 <Link href="/">
@@ -124,7 +124,7 @@ export default function Authenticated({
         </header>
       )}
 
-      <main className="mx-auto max-w-screen-xl py-5">{children}</main>
+      <main className="mx-auto max-w-screen-xl p-5">{children}</main>
       <Footer />
     </div>
   );

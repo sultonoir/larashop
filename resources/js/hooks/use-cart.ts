@@ -11,10 +11,15 @@ type Aritmatic = {
   id: number;
   amount: number;
 };
+
+type Remove = {
+  id: number;
+  size: string;
+};
 interface Cart {
   cart: FormatCart[]; // Change this to a non-optional array
   add: (values: FormatCart) => void;
-  remove: (id: number) => void;
+  remove: (values: Remove) => void;
   mutate: (values: Aritmatic) => void;
   clear: () => void;
 }
@@ -53,10 +58,12 @@ export const useCart = create<Cart>()(
           // Jika item tidak ditemukan, tambahkan item baru ke cart
           return { cart: [...state.cart, values] };
         }),
-      remove: (id: number) =>
+      remove: (values: Remove) =>
         set((state) => {
           // Find the item to decrement
-          const updatedCart = state.cart.filter((item) => item.id !== id);
+          const updatedCart = state.cart.filter(
+            (item) => item.id !== values.id && item.size !== values.size,
+          );
           return { cart: updatedCart };
         }),
       clear: () => set({ cart: [] }),

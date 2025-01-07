@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartContoller;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
@@ -54,6 +55,8 @@ Route::group([], function () {
   Route::get("/product/{name}", [ProductController::class, "show"])->name(
     "product.show"
   );
+
+  Route::get("/cart", [CartContoller::class, "index"])->name("cart");
 });
 
 Route::middleware("auth")->group(function () {
