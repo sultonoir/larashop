@@ -1,4 +1,6 @@
 import ApplicationLogo from "@/Components/ApplicationLogo";
+import Cart from "@/Components/Cart";
+import Footer from "@/Components/Footer";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
@@ -14,7 +16,7 @@ export default function Authenticated({
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
       <nav className="border-b border-gray-100 bg-white dark:border-gray-700 dark:bg-gray-800">
-        <div className="mx-auto max-w-screen-2xl px-4 sm:px-0">
+        <div className="mx-auto max-w-screen-xl px-4 sm:px-0">
           <div className="flex h-16 justify-between">
             <div className="flex">
               <div className="flex shrink-0 items-center">
@@ -49,7 +51,9 @@ export default function Authenticated({
                 </NavLink>
               </div>
             </div>
-            <div className="hidden sm:ms-6 sm:flex sm:items-center"></div>
+            <div className="hidden sm:ms-6 sm:flex sm:items-center">
+              <Cart />
+            </div>
 
             <div className="-me-2 flex items-center sm:hidden">
               <button
@@ -120,7 +124,8 @@ export default function Authenticated({
         </header>
       )}
 
-      <main className="mx-auto max-w-screen-2xl py-5">{children}</main>
+      <main className="mx-auto max-w-screen-xl py-5">{children}</main>
+      <Footer />
     </div>
   );
 }

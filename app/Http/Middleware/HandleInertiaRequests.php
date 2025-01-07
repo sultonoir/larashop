@@ -37,7 +37,7 @@ class HandleInertiaRequests extends Middleware
         "user" => $request->user(),
       ],
       "todos" => Todo::all(),
-      "products" => Product::all(),
+      "products" => Product::paginate(8),
     ];
   }
 }

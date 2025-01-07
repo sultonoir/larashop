@@ -39,9 +39,7 @@ Route::group([], function () {
   Route::post("/product", [ProductController::class, "store"])->name(
     "product.store"
   );
-  Route::delete("/product/{id}", [ProductController::class, "destroy"])->name(
-    "product.destroy"
-  );
+
   Route::get("men", [SearchController::class, "man"])->name("men");
 
   // Route untuk kategori "women"
@@ -53,9 +51,9 @@ Route::group([], function () {
     "accessories"
   );
 
-  Route::get("/product/{id}", [ProductController::class, "show"])
-    ->where("id", "[0-9]+") // Hanya menerima angka
-    ->name("product.show");
+  Route::get("/product/{name}", [ProductController::class, "show"])->name(
+    "product.show"
+  );
 });
 
 Route::middleware("auth")->group(function () {

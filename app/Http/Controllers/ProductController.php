@@ -94,23 +94,30 @@ class ProductController extends Controller
   /**
    * Display the specified resource.
    */
-  public function show($id)
+  public function show($name)
   {
+    // Validasi input nama produk
     $validated = Validator::make(
-      ["id" => $id],
+      ["name" => $name],
       [
-        "id" => "required|integer|min:1",
+        "name" => "required|string|min:1",
       ]
     );
 
     if ($validated->fails()) {
-      return abort(400, "ID tidak valid.");
+      return redirect()->back()->withErrors("Nama produk tidak valid.");
     }
 
-    // Mengambil produk dengan ID
-    $product = Product::findOrFail($id);
+    // Mencari produk berdasarkan nama
+    $product = Product::where("name", $name)->first();
 
-    return view("product.show", compact("product"));
+    if (!$product) {
+      return redirect()
+        ->back()
+        ->with("error", "Produk dengan nama '$name' tidak ditemukan.");
+    }
+
+    return Inertia::render("Product/Details", ["product" => $product]);
   }
 
   /**
