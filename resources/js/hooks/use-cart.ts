@@ -62,7 +62,7 @@ export const useCart = create<Cart>()(
         set((state) => {
           // Find the item to decrement
           const updatedCart = state.cart.filter(
-            (item) => item.id !== values.id && item.size !== values.size,
+            (item) => !(item.id === values.id && item.size === values.size),
           );
           return { cart: updatedCart };
         }),

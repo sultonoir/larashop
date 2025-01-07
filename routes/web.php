@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartContoller;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
@@ -57,6 +58,14 @@ Route::group([], function () {
   );
 
   Route::get("/cart", [CartContoller::class, "index"])->name("cart");
+
+  Route::get("/checkout", [CheckoutController::class, "index"])->name(
+    "checkout"
+  );
+
+  Route::post("/checkout", [CheckoutController::class, "store"])->name(
+    "checkout.store"
+  );
 });
 
 Route::middleware("auth")->group(function () {

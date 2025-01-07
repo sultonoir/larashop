@@ -7,6 +7,7 @@ import { Product } from "@/types";
 import { Head } from "@inertiajs/react";
 import { Minus, Plus, Star } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
 interface Props {
   product: Product;
@@ -23,6 +24,7 @@ export default function Details({ product }: Props) {
       return;
     }
     add({ ...product, size: selectedSize, amount: quantity });
+    toast.success("Added to the cart");
   };
 
   return (

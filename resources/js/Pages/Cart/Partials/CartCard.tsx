@@ -2,6 +2,7 @@ import { useCart } from "@/hooks/use-cart";
 import { formatToDollar } from "@/lib/utils";
 import { Product } from "@/types";
 import { Minus, Plus, Trash2 } from "lucide-react";
+import { toast } from "sonner";
 
 interface Props {
   product: Product & {
@@ -14,6 +15,7 @@ const CartCard = ({ product }: Props) => {
 
   const handleRemove = () => {
     remove({ id: product.id, size: product.size });
+    toast.success("Removed from the cart");
   };
 
   const calculated = formatToDollar(product.price * product.amount);

@@ -5,6 +5,7 @@ import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 import { PropsWithChildren, ReactNode, useState } from "react";
+import { Toaster } from "sonner";
 
 export default function Authenticated({
   header,
@@ -126,6 +127,7 @@ export default function Authenticated({
 
       <main className="mx-auto max-w-screen-xl p-5">{children}</main>
       <Footer />
+      <Toaster position="top-center" richColors />
     </div>
   );
 }
