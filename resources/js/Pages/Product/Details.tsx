@@ -29,7 +29,7 @@ export default function Details({ product }: Props) {
 
   return (
     <Authenticated>
-      <Head title="hallo" />
+      <Head title={product.name} />
       <div className="size-full px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           {/* Product Images */}

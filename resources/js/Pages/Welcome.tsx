@@ -41,7 +41,7 @@ export default function Welcome() {
       {/* Categories */}
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <Link href="/product" className="group relative cursor-pointer">
+          <Link href="/women" className="group relative cursor-pointer">
             <img
               className="h-[400px] w-full rounded-lg object-cover"
               src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
@@ -52,7 +52,7 @@ export default function Welcome() {
               <h3 className="text-2xl font-semibold text-white">Women</h3>
             </div>
           </Link>
-          <Link href="/product" className="group relative cursor-pointer">
+          <Link href="/men" className="group relative cursor-pointer">
             <img
               className="h-[400px] w-full rounded-lg object-cover"
               src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
@@ -63,7 +63,7 @@ export default function Welcome() {
               <h3 className="text-2xl font-semibold text-white">Men</h3>
             </div>
           </Link>
-          <Link href="/product" className="group relative cursor-pointer">
+          <Link href="/accessories" className="group relative cursor-pointer">
             <img
               className="h-[400px] w-full rounded-lg object-cover"
               src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"

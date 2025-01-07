@@ -3,7 +3,7 @@
 import InputError from "@/Components/InputError";
 import { useCart } from "@/hooks/use-cart";
 import Authenticated from "@/Layouts/AuthenticatedLayout";
-import { useForm } from "@inertiajs/react";
+import { Head, useForm } from "@inertiajs/react";
 import React from "react";
 import { toast } from "sonner";
 
@@ -56,6 +56,7 @@ const PaymentForm: React.FC = () => {
 
   return (
     <Authenticated>
+      <Head title="Checkout" />
       <form
         onSubmit={handleSubmit}
         className="mx-auto my-5 max-w-2xl rounded-lg bg-gray-50 p-6 text-gray-800 shadow-md">
