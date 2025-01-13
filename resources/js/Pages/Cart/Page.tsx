@@ -13,8 +13,8 @@ const Page = () => {
   return (
     <Authenticated>
       <Head title="Cart" />
-      <div className="relative mx-auto min-h-screen max-w-screen-lg">
-        <div className="flex h-96 w-full flex-col items-center justify-center gap-5">
+      <div className="relative mx-auto min-h-screen max-w-screen-lg py-5">
+        <div className="flex min-h-96 w-full flex-col items-center justify-center gap-5">
           {cart.length < 1 ? (
             <>
               <p className="text-2xl lg:text-4xl">
@@ -22,7 +22,7 @@ const Page = () => {
               </p>
               <Link
                 href="/product"
-                className="bg-primary rounded-lg px-4 py-2 text-white">
+                className="rounded-lg bg-primary px-4 py-2 text-white">
                 Explore now
               </Link>
             </>
@@ -39,13 +39,13 @@ const Page = () => {
           <div className="flex flex-col items-center justify-between gap-4 rounded-lg bg-zinc-50 p-4 md:flex-row">
             <p className="text-lg lg:text-2xl">
               Estimated total
-              <span className="text-destructive ml-2 font-bold">
+              <span className="ml-2 font-bold text-destructive">
                 {formatToDollar(totalPrice)}
               </span>
             </p>
             <Link
               href="/checkout"
-              className="btn-primary checkout font-koulen !ml-0 flex h-[58px] w-full items-center justify-center rounded-[6px] border border-black bg-black text-[24px] tracking-wider text-white hover:bg-white hover:text-black md:w-[320px]">
+              className="btn-primary checkout font-koulen !ml-0 flex h-[58px] w-full items-center justify-center rounded-[6px] border border-sky-500 bg-sky-500 text-[24px] tracking-wider text-white hover:bg-sky-400 md:w-[320px]">
               Checkout
             </Link>
           </div>

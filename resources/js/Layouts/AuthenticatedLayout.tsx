@@ -3,6 +3,7 @@ import Cart from "@/Components/Cart";
 import Footer from "@/Components/Footer";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
+import Search from "@/Components/Search";
 import { Link } from "@inertiajs/react";
 import { PropsWithChildren, ReactNode, useState } from "react";
 import { Toaster } from "sonner";
@@ -18,10 +19,10 @@ export default function Authenticated({
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
       <nav className="border-b border-gray-100 bg-white dark:border-gray-700 dark:bg-gray-800">
         <div className="mx-auto max-w-screen-xl">
-          <div className="flex h-16 justify-between px-4">
+          <div className="flex h-16 items-center justify-between px-4">
             <div className="flex">
               <div className="flex shrink-0 items-center">
-                <Link href="/">
+                <Link href="/" aria-label="home page">
                   <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                 </Link>
               </div>
@@ -52,7 +53,11 @@ export default function Authenticated({
                 </NavLink>
               </div>
             </div>
-            <div className="hidden sm:ms-6 sm:flex sm:items-center">
+            <div className="mx-2 flex grow items-center sm:hidden">
+              <Search />
+            </div>
+            <div className="hidden gap-2 sm:ms-6 sm:flex sm:items-center">
+              <Search />
               <Cart />
             </div>
 
@@ -99,19 +104,24 @@ export default function Authenticated({
           }>
           <div className="space-y-1 pb-3 pt-2">
             <ResponsiveNavLink
-              href={route("dashboard")}
-              active={route().current("dashboard")}>
+              href={route("product")}
+              active={route().current("product")}>
               All
             </ResponsiveNavLink>
             <ResponsiveNavLink
-              href={route("dashboard")}
-              active={route().current("dashboard")}>
+              href={route("women")}
+              active={route().current("women")}>
               Woment
             </ResponsiveNavLink>
             <ResponsiveNavLink
-              href={route("dashboard")}
-              active={route().current("dashboard")}>
+              href={route("men")}
+              active={route().current("men")}>
               Men
+            </ResponsiveNavLink>
+            <ResponsiveNavLink
+              href={route("accessories")}
+              active={route().current("accessories")}>
+              Accessories
             </ResponsiveNavLink>
           </div>
         </div>

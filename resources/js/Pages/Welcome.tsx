@@ -67,7 +67,7 @@ export default function Welcome() {
             <img
               className="h-[400px] w-full rounded-lg object-cover"
               src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-              alt="Accessories"
+              alt="Accessories fashion"
             />
             <div className="absolute inset-0 rounded-lg bg-black bg-opacity-25 transition-all group-hover:bg-opacity-40"></div>
             <div className="absolute bottom-6 left-6">

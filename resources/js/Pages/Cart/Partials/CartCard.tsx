@@ -24,15 +24,15 @@ const CartCard = ({ product }: Props) => {
       <img
         src={product.image_url}
         alt={product.name}
-        className="h-[100px] w-20 flex-none rounded-lg object-cover"
+        className="w-20 flex-none rounded-lg object-cover"
       />
       <div className="mt-1 flex w-full flex-col justify-start gap-3 leading-none">
         <div className="inline-flex w-full items-center justify-between">
-          <p className="border-border w-fit rounded-lg border px-2 py-0.5 text-sm">
+          <p className="w-fit rounded-lg border border-border px-2 py-0.5 text-sm">
             Size : {product.size}
           </p>
           <button
-            className="ring-offset-background border-muted-foreground hover:text-accent-foreground text-muted-foreground relative inline-flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-full border px-2 py-1 text-sm font-medium transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+            className="relative inline-flex w-fit items-center justify-center gap-2 whitespace-nowrap rounded-full border border-muted-foreground px-2 py-1 text-sm font-medium text-muted-foreground ring-offset-background transition-colors hover:text-accent-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
             onClick={handleRemove}>
             <Trash2 className="size-4" />
             Remove
@@ -40,7 +40,7 @@ const CartCard = ({ product }: Props) => {
         </div>
         <div className="inline-flex w-full items-center justify-between">
           <p className="font-bold">{product.name}</p>
-          <p className="text-destructive text-lg font-bold">{calculated}</p>
+          <p className="text-lg font-bold text-destructive">{calculated}</p>
         </div>
 
         <div className="flex items-center space-x-2">
@@ -60,7 +60,7 @@ const CartCard = ({ product }: Props) => {
             <Plus className="size-4" />
           </button>
         </div>
-        <p className="text-destructive font-bold">
+        <p className="font-bold text-destructive">
           {formatToDollar(product.price)}
         </p>
       </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import InputError from "@/Components/InputError";
 import { useCart } from "@/hooks/use-cart";
 import Authenticated from "@/Layouts/AuthenticatedLayout";
 import { Head, useForm } from "@inertiajs/react";
@@ -9,7 +8,7 @@ import { toast } from "sonner";
 
 const PaymentForm: React.FC = () => {
   const { clear } = useCart();
-  const { data, setData, post, errors, processing, reset } = useForm({
+  const { data, setData, post, processing, reset } = useForm({
     streetAddress: "",
     city: "",
     state: "",
@@ -42,9 +41,13 @@ const PaymentForm: React.FC = () => {
     e.preventDefault();
     post(route("checkout.store"), {
       onSuccess: () => {
+        toast.success("successful payment, check your email for a receipt");
         reset();
         clear();
-        toast.success("successful payment, check your email for a receipt");
+        window.location.href = "/";
+      },
+      onError: (err) => {
+        toast.error(err.email);
       },
     });
   };
@@ -249,7 +252,6 @@ const PaymentForm: React.FC = () => {
             Total: ${total.toFixed(2)}
           </p>
         </div>
-        <InputError className="mt-2" message={errors.email} />
         <button
           type="submit"
           disabled={processing}

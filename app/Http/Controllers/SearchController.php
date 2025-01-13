@@ -61,30 +61,23 @@ class SearchController extends Controller
       });
     }
 
-    // Debug: menampilkan query yang dihasilkan dan parameter binding
-    // dd($queryBuilder->toSql(), $queryBuilder->getBindings());
-
     // Menambahkan pagination dengan 10 produk per halaman
-    $products = $queryBuilder->paginate(10);
+    $products = $queryBuilder->paginate(12);
 
-    // Cek apakah data produk ada, jika tidak, bisa memberikan pesan atau handling
-    if ($products->isEmpty()) {
-      // Contoh jika produk tidak ditemukan
-      return Inertia::render("Product/Page", [
-        "products" => [],
-        "message" => "Produk tidak ditemukan.",
-      ]);
-    }
-
+    // Jika tidak ada produk, tampilkan semua produk dengan pesan tambahan
+    $message = null;
     $title = "Produk";
+
     if ($category) {
       $title = ucfirst($category) . " Produk";
     }
 
     if ($searchQuery) {
-      $title = "Hasil Pencarian untuk \"" . $searchQuery . "\"";
-      if ($category) {
-        $title = ucfirst($category) . " - " . $title;
+      $title = "Search results for \"" . $searchQuery . "\"";
+      if ($products->isEmpty()) {
+        $title = "No results found for \"" . $searchQuery . "\"";
+        $products = Product::paginate(12); // Kembalikan semua produk
+        $message = "You might like these products";
       }
     }
 
@@ -92,6 +85,7 @@ class SearchController extends Controller
     return Inertia::render("Product/Page", [
       "products" => $products,
       "title" => $title,
+      "message" => $message, // Kirim pesan tambahan
     ]);
   }
 }

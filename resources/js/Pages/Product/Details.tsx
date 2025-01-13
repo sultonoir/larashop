@@ -110,7 +110,7 @@ export default function Details({ product }: Props) {
           </div>
         </div>
       </div>
-      <Products />
+      <Products title="Recomendations" />
     </Authenticated>
   );
 }

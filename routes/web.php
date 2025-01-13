@@ -49,7 +49,7 @@ Route::group([], function () {
 
   Route::get("search", [SearchController::class, "search"])->name("search");
 
-  Route::get("/accessories", [SearchController::class, "accessories"])->name(
+  Route::get("accessories", [SearchController::class, "accessories"])->name(
     "accessories"
   );
 

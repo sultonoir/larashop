@@ -17,7 +17,5 @@ class CheckoutController extends Controller
     $request->validate([
       "email" => "required|string|max:255",
     ]);
-
-    return redirect()->route("welcome");
   }
 }
